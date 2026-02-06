@@ -1,5 +1,6 @@
 # Import python packages
 import streamlit as st
+import requests
 from snowflake.snowpark.functions import col
 
 # Write directly to the app
@@ -21,7 +22,8 @@ options = st.multiselect(
     my_dataframe,
     max_selections=5
 )
-
+smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+st.text(smoothiefroot_response)
 if options:
 
     ingredients_string = ''
